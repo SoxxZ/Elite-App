@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="pulseeffects">
+    <enum id="com.github.wwmm.pulseeffects.blocksize.enum">
+        <value nick="64" value="64" />
+        <value nick="128" value="128" />
+        <value nick="256" value="256" />
+        <value nick="512" value="512" />
+        <value nick="1024" value="1024" />
+        <value nick="2048" value="2048" />
+        <value nick="4096" value="4096" />
+    </enum>
+    <enum id="com.github.wwmm.pulseeffects.prioritytype.enum">
+        <value nick="Niceness" value="0" />
+        <value nick="Real Time" value="1" />
+        <value nick="None" value="2" />
+    </enum>
+    <enum id="com.github.wwmm.pulseeffects.spectrum.type.enum">
+        <value nick="Bars" value="0" />
+        <value nick="Lines" value="1" />
+    </enum>
+    <schema id="com.github.wwmm.pulseeffects" path="/com/github/wwmm/pulseeffects/">
+        <key name="blocksize-in" enum="com.github.wwmm.pulseeffects.blocksize.enum">
+            <default>"512"</default>
+        </key>
+        <key name="blocksize-out" enum="com.github.wwmm.pulseeffects.blocksize.enum">
+            <default>"512"</default>
+        </key>
+        <key name="enable-all-sinkinputs" type="b">
+            <default>true</default>
+        </key>
+        <key name="enable-all-sourceoutputs" type="b">
+            <default>false</default>
+        </key>
+        <key name="use-dark-theme" type="b">
+            <default>false</default>
+        </key>
+        <key name="use-default-sink" type="b">
+            <default>true</default>
+        </key>
+        <key name="use-default-source" type="b">
+            <default>true</default>
+        </key>
+        <key name="last-used-input-preset" type="s">
+            <default l10n="messages">"Presets"</default>
+        </key>
+        <key name="last-used-output-preset" type="s">
+            <default l10n="messages">"Presets"</default>
+        </key>
+        <key name="custom-sink" type="s">
+            <default>""</default>
+        </key>
+        <key name="custom-source" type="s">
+            <default>""</default>
+        </key>
+        <key name="show-blocklisted-apps" type="b">
+            <default>false</default>
+        </key>
+        <key name="blocklist-in" type="as">
+            <default>[]</default>
+        </key>
+        <key name="blocklist-out" type="as">
+            <default>[]</default>
+        </key>
+        <key name="priority-type" enum="com.github.wwmm.pulseeffects.prioritytype.enum">
+            <default>"None"</default>
+        </key>
+        <key name="realtime-priority" type="i">
+            <range min="0" max="99" />
+            <default>4</default>
+        </key>
+        <key name="niceness" type="i">
+            <range min="-20" max="19" />
+            <default>-10</default>
+        </key>
+        <key name="window-width" type="i">
+            <default>0</default>
+        </key>
+        <key name="window-height" type="i">
+            <default>0</default>
+        </key>
+        <key name="bypass" type="b">
+            <default>false</default>
+        </key>
+        <key name="audio-activity-timeout" type="i">
+            <range min="1" max="3600" />
+            <default>5</default>
+        </key>
+    </schema>
+</schemalist>
